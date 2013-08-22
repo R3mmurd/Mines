@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/matrix">
+        <file alias="0">images/0.png</file>
+        <file alias="1">images/1.png</file>
+        <file alias="2">images/2.png</file>
+        <file alias="3">images/3.png</file>
+        <file alias="4">images/4.png</file>
+        <file alias="5">images/5.png</file>
+        <file alias="6">images/6.png</file>
+        <file alias="7">images/7.png</file>
+        <file alias="8">images/8.png</file>
+        <file alias="flag">images/flag.png</file>
+        <file alias="mine">images/mine.png</file>
+        <file alias="square">images/square.png</file>
+    </qresource>
+    <qresource prefix="/smile">
+        <file alias="glasses">images/glasses.png</file>
+        <file alias="happy">images/happy.png</file>
+        <file alias="sad">images/sad.png</file>
+    </qresource>
+    <qresource prefix="/game">
+        <file alias="mines">images/mines.png</file>
+    </qresource>
+</RCC>

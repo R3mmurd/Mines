@@ -18,7 +18,4 @@
         <file alias="happy">images/happy.png</file>
         <file alias="sad">images/sad.png</file>
     </qresource>
-    <qresource prefix="/game">
-        <file alias="mines">images/mines.png</file>
-    </qresource>
 </RCC>

@@ -39,11 +39,13 @@ class Game_Frame : public QWidget
 
   QLabel lbl_flags;
 
-  void init_gui();
+  size_t height;
+  size_t width;
+  size_t num_mines;
 
-  size_t h;
-  size_t w;
-  size_t m;
+  void init_menu();
+
+  void init_gui();
 
 public:
   explicit Game_Frame(QWidget * parent = 0);

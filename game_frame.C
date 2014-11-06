@@ -25,7 +25,7 @@
 # include <game_frame.H>
 
 Game_Frame::Game_Frame(QWidget *parent) :
-    QWidget(parent), w(30), h(16), m(99), panel(30, 16, 99)
+    QWidget(parent), width(30), height(16), num_mines(99), panel(30, 16, 99)
 {
   init_gui();
   change_mines_info();
@@ -56,7 +56,7 @@ void Game_Frame::init_gui()
 
 void Game_Frame::reinit_game()
 {
-  panel.reinit(w, h, m);
+  panel.reinit(width, height, num_mines);
   change_mines_info();
 }
 

@@ -1,5 +1,3 @@
-CONFIG += warn_off
-
 QMAKE_CXXFLAGS += -std=c++11
 
 LIBS += \

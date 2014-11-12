@@ -28,7 +28,7 @@ Matrix::Matrix(const size_t & _h,
                const size_t & _w,
                const size_t & _mines,
                gsl_rng * r)
-  : h(_h), w(_w), mines(_mines), flags(0), uncovered_boxes(0)
+  : w(_w), h(_h), mines(_mines), flags(0), uncovered_boxes(0)
 {
 
   matrix = new Box *[h];
@@ -100,7 +100,7 @@ void Matrix::flag(const size_t & i, const size_t & j)
 
 void Matrix::discover(const size_t & i, const size_t & j)
 {
-  if (i < 0 or i >= h or j < 0 or j >= w)
+  if (i >= h or j >= w)
     return;
   Matrix_Values & s = matrix[i][j].status;
   if (s == Uncovered or s == Flag or matrix[i][j].object == Bomb)

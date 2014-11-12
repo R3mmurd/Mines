@@ -39,8 +39,8 @@ class Game_Frame : public QWidget
 
   QLabel lbl_flags;
 
-  size_t height;
   size_t width;
+  size_t height;
   size_t num_mines;
 
   void init_menu();

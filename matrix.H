@@ -25,10 +25,8 @@
 # ifndef MATRIX_H
 # define MATRIX_H
 
-# include <cstring>
 # include <stdexcept>
-# include <cstdlib>
-# include <gsl/gsl_rng.h>
+# include <random>
 
 enum Matrix_Values
 {
@@ -73,7 +71,7 @@ class Matrix
   void inc_mines_around(const size_t &, const size_t &);
 
 public:
-    Matrix(const size_t &, const size_t &, const size_t &, gsl_rng * r);
+    Matrix(const size_t &, const size_t &, const size_t &, std::mt19937 &);
 
     ~Matrix();
 

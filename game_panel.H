@@ -37,7 +37,7 @@ class Game_Panel : public QWidget
 
   Matrix * matrix;
 
-  gsl_rng * r;
+  std::mt19937 rng;
 
   bool finished;
 

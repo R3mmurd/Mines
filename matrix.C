@@ -27,9 +27,14 @@
 Matrix::Matrix(const size_t & _h,
                const size_t & _w,
                const size_t & _mines,
-               gsl_rng * r)
+               std::mt19937 & rng)
   : w(_w), h(_h), mines(_mines), flags(0), uncovered_boxes(0)
 {
+
+  using unif_dist_t = std::uniform_int_distribution<int>;
+
+  unif_dist_t col_dist {0, int(w) - 1};
+  unif_dist_t row_dist {0, int(h) - 1};
 
   matrix = new Box *[h];
   for (size_t i = 0; i < h; ++i)
@@ -39,12 +44,12 @@ Matrix::Matrix(const size_t & _h,
     {
       while (true)
         {
-          const size_t c = gsl_rng_uniform_int(r, w);
-          const size_t f = gsl_rng_uniform_int(r, h);
-          if (matrix[f][c].object != Bomb)
+          const size_t col = col_dist(rng);
+          const size_t row = row_dist(rng);
+          if (matrix[row][col].object != Bomb)
             {
-              matrix[f][c].object = Bomb;
-              inc_mines_around(f, c);
+              matrix[row][col].object = Bomb;
+              inc_mines_around(row, col);
               break;
             }
         }

@@ -22,6 +22,8 @@
   aledrums@gmail.com
 */
 
+# include <chrono>
+
 # include <game_panel.H>
 
 QString Game_Panel::images_names [] =
@@ -46,9 +48,12 @@ Game_Panel::Game_Panel(const size_t & w,
                        QWidget *parent) :
   QWidget(parent), finished(false)
 {
-  r = gsl_rng_alloc(gsl_rng_mt19937);
-  gsl_rng_set(r, time(NULL));
-  matrix = new Matrix(h, w, m, r);
+  unsigned long seed =
+    std::chrono::high_resolution_clock::now().time_since_epoch().count();
+
+  rng.seed(seed);
+
+  matrix = new Matrix(h, w, m, rng);
   resize(matrix->cols() * SCALE, matrix->rows() * SCALE);
 }
 # include <iostream>
@@ -110,14 +115,13 @@ void Game_Panel::mousePressEvent(QMouseEvent * evt)
 void Game_Panel::reinit(const size_t & w, const size_t & h, const size_t & m)
 {
   delete matrix;
-  matrix = new Matrix(h, w, m, r);
+  matrix = new Matrix(h, w, m, rng);
   finished = false;
   repaint();
 }
 
 Game_Panel::~Game_Panel()
 {
-  gsl_rng_free(r);
   delete matrix;
 }
 

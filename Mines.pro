@@ -1,9 +1,5 @@
 QMAKE_CXXFLAGS += -std=c++11
 
-LIBS += \
-    -lgsl \
-    -lgslcblas
-
 HEADERS += \
     matrix.H \
     game_panel.H \

@@ -14,5 +14,4 @@ System requeriments:
 - QT4
 - qt4-qmake
 
-Author: Alejandro J. Mujica
-Email: aledrums@gmail.com
+Author: Alejandro J. Mujica (aledrums@gmail.com).

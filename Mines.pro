@@ -1,5 +1,7 @@
 QMAKE_CXXFLAGS += -std=c++11
 
+QT += core widgets
+
 HEADERS += \
     matrix.H \
     game_panel.H \

@@ -25,7 +25,10 @@
 # ifndef GAME_FRAME_H
 # define GAME_FRAME_H
 
-# include <QtGui>
+# include <QLabel>
+# include <QIcon>
+# include <QVBoxLayout>
+# include <QHBoxLayout>
 # include <game_panel.H>
 # include <face.H>
 

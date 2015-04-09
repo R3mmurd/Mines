@@ -45,11 +45,12 @@ QString Game_Panel::images_names [] =
 Game_Panel::Game_Panel(const size_t & w,
                        const size_t & h,
                        const size_t & m,
-                       QWidget *parent) :
+                       QWidget * parent) :
   QWidget(parent), finished(false)
 {
   unsigned long seed =
-    std::chrono::high_resolution_clock::now().time_since_epoch().count();
+    std::chrono::high_resolution_clock::now().time_since_epoch().count() %
+    std::mt19937::max();
 
   rng.seed(seed);
 

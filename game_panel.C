@@ -57,7 +57,7 @@ Game_Panel::Game_Panel(const size_t & w,
   matrix = new Matrix(h, w, m, rng);
   resize(matrix->cols() * SCALE, matrix->rows() * SCALE);
 }
-# include <iostream>
+
 void Game_Panel::paintEvent(QPaintEvent *)
 {
   QPainter painter(this);

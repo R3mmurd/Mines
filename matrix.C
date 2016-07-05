@@ -22,6 +22,10 @@
   aledrums@gmail.com
 */
 
+# include <utility>
+
+# include <QStack>
+
 # include <matrix.H>
 
 Matrix::Matrix(const size_t & _h,
@@ -103,26 +107,42 @@ void Matrix::flag(const size_t & i, const size_t & j)
     }
 }
 
-void Matrix::discover(const size_t & i, const size_t & j)
+void Matrix::discover(const size_t & _i, const size_t & _j)
 {
-  if (i >= h or j >= w)
-    return;
-  Matrix_Values & s = matrix[i][j].status;
-  if (s == Uncovered or s == Flag or matrix[i][j].object == Bomb)
-    return;
+  using Pos = std::pair<size_t, size_t>;
 
-  ++uncovered_boxes;
-  s = Uncovered;
-  if (matrix[i][j].object == Zero)
+  QStack<Pos> stack;
+
+  stack.push(std::make_pair(_i, _j));
+
+  while (not stack.empty())
     {
-      discover(i - 1, j - 1);
-      discover(i - 1, j);
-      discover(i - 1, j + 1);
-      discover(i, j + 1);
-      discover(i + 1, j + 1);
-      discover(i + 1, j);
-      discover(i + 1, j - 1);
-      discover(i, j - 1);
+      Pos p = stack.pop();
+
+      const size_t & i = p.first;
+      const size_t & j = p.second;
+
+      if (i >= h or j >= w)
+        continue;
+
+      Matrix_Values & s = matrix[i][j].status;
+
+      if (s == Uncovered or s == Flag or matrix[i][j].object == Bomb)
+        continue;
+
+      ++uncovered_boxes;
+      s = Uncovered;
+      if (matrix[i][j].object == Zero)
+        {
+          stack.push(std::make_pair(i - 1, j - 1));
+          stack.push(std::make_pair(i - 1, j));
+          stack.push(std::make_pair(i - 1, j + 1));
+          stack.push(std::make_pair(i, j + 1));
+          stack.push(std::make_pair(i + 1, j + 1));
+          stack.push(std::make_pair(i + 1, j));
+          stack.push(std::make_pair(i + 1, j - 1));
+          stack.push(std::make_pair(i, j - 1));
+        }
     }
 }
 

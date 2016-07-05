@@ -10,8 +10,8 @@
         <file alias="7">images/7.png</file>
         <file alias="8">images/8.png</file>
         <file alias="flag">images/flag.png</file>
-        <file alias="mine">images/mine.png</file>
         <file alias="square">images/square.png</file>
+        <file>images/Mine.png</file>
     </qresource>
     <qresource prefix="/smile">
         <file alias="glasses">images/glasses.png</file>

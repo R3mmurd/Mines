@@ -9,9 +9,7 @@ In this example, you only may change the matrix size by modifying source code. N
 System requeriments:
 
 - GNU/Linux Operating System
-- Any C++ compiler (gcc preferably)
-- GNU Scientific Library (GSL)
-- QT4
-- qt4-qmake
+- Any C++ compiler (clang preferably)
+- Qt5
 
 Author: Alejandro J. Mujica (aledrums@gmail.com).

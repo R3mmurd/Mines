@@ -11,9 +11,9 @@
         <file alias="8">images/8.png</file>
         <file alias="flag">images/flag.png</file>
         <file alias="square">images/square.png</file>
-        <file>images/Mine.png</file>
+        <file alias="mine">images/mine.png</file>
     </qresource>
-    <qresource prefix="/smile">
+    <qresource prefix="/face">
         <file alias="glasses">images/glasses.png</file>
         <file alias="happy">images/happy.png</file>
         <file alias="sad">images/sad.png</file>

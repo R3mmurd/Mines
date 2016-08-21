@@ -30,7 +30,7 @@
 
 # define SIZE 40
 
-enum Status
+enum class Status
 {
   Happy,
   Sad,
@@ -42,7 +42,7 @@ class Face : public QWidget
 {
   Q_OBJECT
 
-  static QString face_images[Num_Status];
+  static QString face_images[int(Status::Num_Status)];
 
   void normal();
 

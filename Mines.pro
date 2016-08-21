@@ -1,4 +1,6 @@
-QMAKE_CXXFLAGS += -std=c++14
+QMAKE_CXX = clang++
+
+CONFIG += c++14
 
 QT += core widgets
 

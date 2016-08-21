@@ -26,9 +26,9 @@
 
 QString Face::face_images [] =
 {
-  ":/smile/happy",
-  ":/smile/sad",
-  ":/smile/glasses"
+  ":/face/happy",
+  ":/face/sad",
+  ":/face/glasses"
 };
 
 Face::Face(QWidget *parent) :
@@ -41,7 +41,7 @@ Face::Face(QWidget *parent) :
 void Face::paintEvent(QPaintEvent *)
 {
   QPainter painter(this);
-  painter.drawPixmap(0, 0, SIZE, SIZE, face_images[status]);
+  painter.drawPixmap(0, 0, SIZE, SIZE, face_images[int(status)]);
 }
 
 void Face::mousePressEvent(QMouseEvent *)
@@ -52,18 +52,18 @@ void Face::mousePressEvent(QMouseEvent *)
 
 void Face::sad()
 {
-  status = Sad;
+  status = Status::Sad;
   repaint();
 }
 
 void Face::happy()
 {
-  status = Happy;
+  status = Status::Happy;
   repaint();
 }
 
 void Face::normal()
 {
-  status = Glasses;
+  status = Status::Glasses;
   repaint();
 }

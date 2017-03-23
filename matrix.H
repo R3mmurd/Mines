@@ -42,7 +42,7 @@ enum Matrix_Values
   Six,
   Seven,
   Eight,
-  Bomb,
+  Mine,
   Num_Matrix_Values
 };
 
@@ -83,7 +83,7 @@ public:
 
     const Matrix_Values & status_of(const size_t &, const size_t &);
 
-    void flag(const size_t &, const size_t &);
+    bool flag(const size_t &, const size_t &);
 
     void discover(const size_t &, const size_t &);
 

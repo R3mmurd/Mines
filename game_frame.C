@@ -63,7 +63,7 @@ void Game_Frame::reinit_game()
 void Game_Frame::change_mines_info()
 {
   lbl_flags.setText(QString("Minas: " +
-                            QString().setNum(panel.get_matrix_flags())) +
+                            QString::number(panel.get_matrix_flags())) +
                     QString(" / ") +
-                    QString().setNum(panel.get_matrix_mines()));
+                    QString::number(panel.get_matrix_mines()));
 }

@@ -56,6 +56,12 @@ Game_Panel::Game_Panel(const size_t & w,
 
   matrix = new Matrix(h, w, m, rng);
   resize(matrix->cols() * SCALE, matrix->rows() * SCALE);
+
+  win_sound = new QSound("audio/win.wav");
+  lost_sound = new QSound("audio/lost.wav");
+  explosion_sound = new QSound("audio/explosion.wav");
+  click_sound = new QSound("audio/click.wav");
+  flag_sound = new QSound("audio/flag.wav");
 }
 
 void Game_Panel::paintEvent(QPaintEvent *)
@@ -91,23 +97,32 @@ void Game_Panel::mousePressEvent(QMouseEvent * evt)
 
   if (evt->button() == Qt::RightButton)
     {
-      matrix->flag(i, j);
-      emit flags_changed();
+      if (matrix->flag(i, j))
+        {
+          flag_sound->play();
+          emit flags_changed();
+        }
     }
   else if (evt->button() == Qt::LeftButton)
     {
-      if (matrix->object_of(i, j) == Bomb and matrix->status_of(i, j) != Flag)
+      if (matrix->object_of(i, j) == Mine and matrix->status_of(i, j) != Flag)
         {
           matrix->discover_all_mines();
           finished = true;
           emit lost();
+          explosion_sound->play();
+          lost_sound->play();
         }
       else
         {
+          click_sound->play();
           matrix->discover(i, j);
           finished = matrix->are_uncovered_all();
           if (finished)
-            emit win();
+            {
+              win_sound->play();
+              emit win();
+            }
         }
     }
   repaint();

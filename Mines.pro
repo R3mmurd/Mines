@@ -2,7 +2,7 @@ QMAKE_CXX = clang++
 
 CONFIG += c++14
 
-QT += core widgets
+QT += core widgets multimedia
 
 HEADERS += \
     matrix.H \

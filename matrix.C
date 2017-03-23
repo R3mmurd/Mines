@@ -50,9 +50,9 @@ Matrix::Matrix(const size_t & _h,
         {
           const size_t col = col_dist(rng);
           const size_t row = row_dist(rng);
-          if (matrix[row][col].object != Bomb)
+          if (matrix[row][col].object != Mine)
             {
-              matrix[row][col].object = Bomb;
+              matrix[row][col].object = Mine;
               inc_mines_around(row, col);
               break;
             }
@@ -87,11 +87,11 @@ const Matrix_Values & Matrix::status_of(const size_t & i, const size_t & j)
   return matrix[i][j].status;
 }
 
-void Matrix::flag(const size_t & i, const size_t & j)
+bool Matrix::flag(const size_t & i, const size_t & j)
 {
   Matrix_Values & s = matrix[i][j].status;
   if (s == Uncovered)
-    return;
+    return false;
 
   if (s == Flag)
     {
@@ -101,10 +101,12 @@ void Matrix::flag(const size_t & i, const size_t & j)
   else
     {
       if (flags == mines)
-        return;
+        return false;
       s = Flag;
       ++flags;
     }
+
+  return true;
 }
 
 void Matrix::discover(const size_t & _i, const size_t & _j)
@@ -127,7 +129,7 @@ void Matrix::discover(const size_t & _i, const size_t & _j)
 
       Matrix_Values & s = matrix[i][j].status;
 
-      if (s == Uncovered or s == Flag or matrix[i][j].object == Bomb)
+      if (s == Uncovered or s == Flag or matrix[i][j].object == Mine)
         continue;
 
       ++uncovered_boxes;
@@ -150,7 +152,7 @@ void Matrix::discover_all_mines()
 {
   for (size_t i = 0; i < h; ++i)
     for (size_t j = 0; j < w; ++j)
-      if (matrix[i][j].object == Bomb and matrix[i][j].status != Flag)
+      if (matrix[i][j].object == Mine and matrix[i][j].status != Flag)
         matrix[i][j].status = Uncovered;
 }
 
@@ -175,36 +177,36 @@ void Matrix::inc_mines_around(const size_t & i, const size_t & j)
     {
       matrix[i - 1][j].object =
           Matrix_Values(int(matrix[i - 1][j].object) +
-                        ((matrix[i - 1][j].object == Bomb) ? 0 : 1));
+                        ((matrix[i - 1][j].object == Mine) ? 0 : 1));
       if (j > 0)
         matrix[i - 1][j - 1].object =
             Matrix_Values(int(matrix[i - 1][j - 1].object) +
-                          ((matrix[i - 1][j - 1].object == Bomb) ? 0 : 1));
+                          ((matrix[i - 1][j - 1].object == Mine) ? 0 : 1));
       if (j < w - 1)
         matrix[i - 1][j + 1].object =
             Matrix_Values(int(matrix[i - 1][j + 1].object) +
-                          ((matrix[i - 1][j + 1].object == Bomb) ? 0 : 1));
+                          ((matrix[i - 1][j + 1].object == Mine) ? 0 : 1));
     }
   if (i < h - 1)
     {
       matrix[i + 1][j].object =
           Matrix_Values(int(matrix[i + 1][j].object) +
-                        ((matrix[i + 1][j].object == Bomb) ? 0 : 1));
+                        ((matrix[i + 1][j].object == Mine) ? 0 : 1));
       if (j > 0)
         matrix[i + 1][j - 1].object =
             Matrix_Values(int(matrix[i + 1][j - 1].object) +
-                          ((matrix[i + 1][j - 1].object == Bomb) ? 0 : 1));
+                          ((matrix[i + 1][j - 1].object == Mine) ? 0 : 1));
       if (j < w - 1)
         matrix[i + 1][j + 1].object =
             Matrix_Values(int(matrix[i + 1][j + 1].object) +
-                          ((matrix[i + 1][j + 1].object == Bomb) ? 0 : 1));
+                          ((matrix[i + 1][j + 1].object == Mine) ? 0 : 1));
     }
   if (j > 0)
     matrix[i][j - 1].object =
         Matrix_Values(int(matrix[i][j - 1].object) +
-                      ((matrix[i][j - 1].object == Bomb) ? 0 : 1));
+                      ((matrix[i][j - 1].object == Mine) ? 0 : 1));
   if (j < w - 1)
     matrix[i][j + 1].object =
         Matrix_Values(int(matrix[i][j + 1].object) +
-                      ((matrix[i][j + 1].object == Bomb) ? 0 : 1));
+                      ((matrix[i][j + 1].object == Mine) ? 0 : 1));
 }

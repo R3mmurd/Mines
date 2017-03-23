@@ -28,6 +28,7 @@
 # include <QPainter>
 # include <matrix.H>
 # include <QMouseEvent>
+# include <QSound>
 
 # define SCALE 20
 
@@ -40,6 +41,12 @@ class Game_Panel : public QWidget
   std::mt19937 rng;
 
   bool finished;
+
+  QSound * win_sound;
+  QSound * lost_sound;
+  QSound * explosion_sound;
+  QSound * click_sound;
+  QSound * flag_sound;
 
   static QString images_names[Num_Matrix_Values - 1];
 

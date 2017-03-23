@@ -26,9 +26,9 @@
 
 QString Face::face_images [] =
 {
-  ":/face/happy",
-  ":/face/sad",
-  ":/face/glasses"
+  ":/images/face/happy",
+  ":/images/face/sad",
+  ":/images/face/glasses"
 };
 
 Face::Face(QWidget *parent) :

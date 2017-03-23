@@ -28,18 +28,18 @@
 
 QString Game_Panel::images_names [] =
 {
-  ":/matrix/square",
-  ":/matrix/flag",
-  ":/matrix/0",
-  ":/matrix/1",
-  ":/matrix/2",
-  ":/matrix/3",
-  ":/matrix/4",
-  ":/matrix/5",
-  ":/matrix/6",
-  ":/matrix/7",
-  ":/matrix/8",
-  ":/matrix/mine"
+  ":/images/matrix/square",
+  ":/images/matrix/flag",
+  ":/images/matrix/0",
+  ":/images/matrix/1",
+  ":/images/matrix/2",
+  ":/images/matrix/3",
+  ":/images/matrix/4",
+  ":/images/matrix/5",
+  ":/images/matrix/6",
+  ":/images/matrix/7",
+  ":/images/matrix/8",
+  ":/images/matrix/mine"
 };
 
 Game_Panel::Game_Panel(const size_t & w,
@@ -57,11 +57,11 @@ Game_Panel::Game_Panel(const size_t & w,
   matrix = new Matrix(h, w, m, rng);
   resize(matrix->cols() * SCALE, matrix->rows() * SCALE);
 
-  win_sound = new QSound("audio/win.wav");
-  lost_sound = new QSound("audio/lost.wav");
-  explosion_sound = new QSound("audio/explosion.wav");
-  click_sound = new QSound("audio/click.wav");
-  flag_sound = new QSound("audio/flag.wav");
+  win_sound = new QSound(":/audio/win_sound", this);
+  lost_sound = new QSound(":/audio/lost_sound", this);
+  explosion_sound = new QSound(":/audio/explosion_sound", this);
+  click_sound = new QSound(":/audio/click_sound", this);
+  flag_sound = new QSound(":/audio/flag_sound", this);
 }
 
 void Game_Panel::paintEvent(QPaintEvent *)

@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/matrix">
+    <qresource prefix="/images/matrix">
         <file alias="0">images/0.png</file>
         <file alias="1">images/1.png</file>
         <file alias="2">images/2.png</file>
@@ -13,9 +13,16 @@
         <file alias="square">images/square.png</file>
         <file alias="mine">images/mine.png</file>
     </qresource>
-    <qresource prefix="/face">
+    <qresource prefix="/images/face">
         <file alias="glasses">images/glasses.png</file>
         <file alias="happy">images/happy.png</file>
         <file alias="sad">images/sad.png</file>
+    </qresource>
+    <qresource prefix="/audio">
+        <file alias="click_sound">audio/click.wav</file>
+        <file alias="explosion_sound">audio/explosion.wav</file>
+        <file alias="flag_sound">audio/flag.wav</file>
+        <file alias="lost_sound">audio/lost.wav</file>
+        <file alias="win_sound">audio/win.wav</file>
     </qresource>
 </RCC>

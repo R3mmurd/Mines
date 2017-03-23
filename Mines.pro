@@ -18,4 +18,4 @@ SOURCES += \
     face.C
 
 RESOURCES += \
-    images.qrc
+    multimedia.qrc

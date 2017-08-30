@@ -1,4 +1,4 @@
-Mines: An implementation example.
+# Mines: An implementation example.
 
 This is an simple example that shows how to program graphic interfaces with
 Qt and interacting with events. It may be considered an example for

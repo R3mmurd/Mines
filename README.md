@@ -6,7 +6,7 @@ introducing in games programming too.
 
 In this example, you only may change the matrix size by modifying source code. Next version will contain a menu for game configuration and timer.
 
-System requeriments:
+System requirements:
 
 - GNU/Linux Operating System
 - Any C++ compiler (clang preferably)

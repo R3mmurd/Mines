@@ -1,15 +1,17 @@
-# Mines: An implementation example.
+# Mine
 
-This is an simple example that shows how to program graphic interfaces with
-Qt and interacting with events. It may be considered an example for
-introducing in games programming too.
+This is a remake of the game
+[Minesweeper](https://en.wikipedia.org/wiki/Minesweeper_(video_game)).
 
-In this example, you only may change the matrix size by modifying source code. Next version will contain a menu for game configuration and timer.
+In this example, you only may change the matrix size by modifying source code.
 
-System requirements:
+## Requirements
 
-- GNU/Linux Operating System
-- Any C++ compiler (clang preferably)
+- C++ v14 or higher
 - Qt5
 
-Author: Alejandro J. Mujica (aledrums@gmail.com).
+## Demo
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=pYA5lSGSwWY
+" target="_blank"><img src="http://img.youtube.com/vi/pYA5lSGSwWY/0.jpg"
+alt="Demo MInes" width="240" height="180" border="10" /></a>
